@@ -54,6 +54,16 @@ def db_init():
         parent INTEGER, FOREIGN KEY(parent) REFEREMCES geo_entities(geo_entity_name),
         child INTEGER, FOREIGN KEY(child) REFEREMCES geo_entities(geo_entity_name)
     )""")
+    conn.execute("""INSERT INTO geo_hierarchy (parent, child) VALUES
+    (1, 2),
+    (2, 3),
+    (2, 4),
+    (2, 5),
+    (2, 6),
+    (2, 7),
+    (2, 8),
+    (1, 9),
+    (9, 10)""")
     conn.commit()
 
 def db_check():
