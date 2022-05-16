@@ -48,6 +48,12 @@ def db_init():
     (Домодедово),
     (Беларусь),
     (Минск)""")
+
+    conn.execute("""CREATE TABLE geo_hierarchy(
+        geo_hierarchy_entry INTEGER PRIMARY KEY,
+        parent INTEGER, FOREIGN KEY(parent) REFEREMCES geo_entities(geo_entity_name),
+        child INTEGER, FOREIGN KEY(child) REFEREMCES geo_entities(geo_entity_name)
+    )""")
     conn.commit()
 
 def db_check():
