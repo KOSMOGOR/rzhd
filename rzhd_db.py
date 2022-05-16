@@ -32,6 +32,11 @@ def db_init():
     (паспорт),
     (загран паспорт),
     (паспорт моряка)""")
+
+    conn.execute("""CREATE TABLE geo_entities(
+        geo_entity_id INTEGER PRIMARY KEY,
+        geo_entity_name TEXT
+    )""")
     conn.commit()
 
 def db_check():
