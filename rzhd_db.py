@@ -64,6 +64,13 @@ def db_init():
     (2, 8),
     (1, 9),
     (9, 10)""")
+
+    conn.execute("""CREATE TABLE document_issue_places (
+        document_issue_place_id INTEGER PRIMARY KEY,
+        org_name TEXT,
+        org_code TEXT,
+        geo_entity_id INTEGER, FOREIGN KEY(geo_entity_id) REFEREMCES geo_entities(geo_entity_id)
+    )""")
     conn.commit()
 
 def db_check():
