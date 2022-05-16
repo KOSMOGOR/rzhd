@@ -37,6 +37,17 @@ def db_init():
         geo_entity_id INTEGER PRIMARY KEY,
         geo_entity_name TEXT
     )""")
+    conn.execute("""INSERT INTO geo_entities (geo_entity_name) VALUES
+    (Земля),
+    (Россия),
+    (Москва),
+    (Санкт-Петербург),
+    (Красноярск),
+    (Омск),
+    (Владивосток),
+    (Домодедово),
+    (Беларусь),
+    (Минск)""")
     conn.commit()
 
 def db_check():
