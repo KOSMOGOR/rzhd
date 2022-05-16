@@ -11,43 +11,43 @@ def db_init():
         email TEXT
     )""")
     conn.execute("""INSERT INTO clients (username, password, email) VALUES
-    (ioann, dfgdgcxfgg, ioann@ioann.com),
-    (vasilly, dfgdfgdthf, vasilly@vasylly.com),
-    (pyotr, cgjhcrgdrg, pyotr@pyotr.com)""")
+    ("ioann", "dfgdgcxfgg", "ioann@ioann.com"),
+    ("vasilly", "dfgdfgdthf", "vasilly@vasylly.com"),
+    ("pyotr", "cgjhcrgdrg", "pyotr@pyotr.com")""")
 
     conn.execute("""CREATE TABLE genders(
         gender_id INTEGER PRIMARY KEY,
         gender_name TEXT
     )""")
     conn.execute("""INSERT INTO genders (gender_name) VALUES
-    (муж),
-    (жен),
-    (апач)""")
+    ("муж"),
+    ("жен"),
+    ("апач")""")
 
     conn.execute("""CREATE TABLE client_document_types(
         document_type_id INTEGER PRIMARY KEY,
         type_name TEXT
     )""")
     conn.execute("""INSERT INTO client_document_types (type_name) VALUES
-    (паспорт),
-    (загран паспорт),
-    (паспорт моряка)""")
+    ("паспорт"),
+    ("загран паспорт"),
+    ("паспорт моряка")""")
 
     conn.execute("""CREATE TABLE geo_entities(
         geo_entity_id INTEGER PRIMARY KEY,
         geo_entity_name TEXT
     )""")
     conn.execute("""INSERT INTO geo_entities (geo_entity_name) VALUES
-    (Земля),
-    (Россия),
-    (Москва),
-    (Санкт-Петербург),
-    (Красноярск),
-    (Омск),
-    (Владивосток),
-    (Домодедово),
-    (Беларусь),
-    (Минск)""")
+    ("Земля"),
+    ("Россия"),
+    ("Москва"),
+    ("Санкт-Петербург"),
+    ("Красноярск"),
+    ("Омск"),
+    ("Владивосток"),
+    ("Домодедово"),
+    ("Беларусь"),
+    ("Минск")""")
 
     conn.execute("""CREATE TABLE geo_hierarchy(
         geo_hierarchy_entry INTEGER PRIMARY KEY,
@@ -71,6 +71,10 @@ def db_init():
         org_code TEXT,
         geo_entity_id INTEGER, FOREIGN KEY(geo_entity_id) REFEREMCES geo_entities(geo_entity_id)
     )""")
+    conn.execute("""INSERT INTO document_issue_places (org_name, org_code, geo_entity_id) VALUES
+    ("МВД по Орехово-Борисово Южное", "123", 3),
+    ("МВД по Орехово-Борисово Северное", "124", 3),
+    ("Консульство РФ в Минске", "321", 10)""")
     conn.commit()
 
 def db_check():
