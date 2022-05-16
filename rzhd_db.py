@@ -75,6 +75,19 @@ def db_init():
     ("МВД по Орехово-Борисово Южное", "123", 3),
     ("МВД по Орехово-Борисово Северное", "124", 3),
     ("Консульство РФ в Минске", "321", 10)""")
+
+    conn.execute("""CREATE TABLE client_documents (
+        client_document_id INTEGER PRIMARY KEY,
+        client_id INTEGER, FOREIGN KEY(client_id) REFEREMCES clients(client_id)
+        document_type_id INTEGER, FOREIGN KEY(document_type_id) REFEREMCES document_types(document_type_id)
+        document_number TEXT,
+        family_name TEXT,
+        given_name TEXT,
+        patronymic TEXT,
+        birthdate INTEGER,
+        gender_id INTEGER, FOREIGN KEY(gender_id) REFEREMCES genders(gender_id)
+        document_issue_place_id INTEGER, FOREIGN KEY(document_issue_place_id) REFEREMCES document_issue_places(document_issue_place_id)
+    )""")
     conn.commit()
 
 def db_check():
