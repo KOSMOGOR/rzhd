@@ -23,6 +23,11 @@ def db_init():
     (муж),
     (жен),
     (апач)""")
+
+    conn.execute("""CREATE TABLE client_document_types(
+        document_type_id INTEGER PRIMARY KEY,
+        type_name TEXT
+    )""")
     conn.commit()
 
 def db_check():
