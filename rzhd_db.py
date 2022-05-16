@@ -6,8 +6,11 @@ def db_init():
 	#TODO2: add all tables
 
 def db_check():
-	pass
-	#TODO1: print all tables
+	conn = sqlite3.connect(DB_NAME)
+	conn.execute()
+	cur = conn.cursor()
+	for i in cur.execute("SELECT name FROM sqlite_schema WHERE type ='table' AND name NOT LIKE 'sqlite_%';"):
+		print(i)
 
 from os.path import exists
 if not exists(DB_NAME):
