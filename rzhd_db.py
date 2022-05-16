@@ -88,6 +88,10 @@ def db_init():
         gender_id INTEGER, FOREIGN KEY(gender_id) REFEREMCES genders(gender_id)
         document_issue_place_id INTEGER, FOREIGN KEY(document_issue_place_id) REFEREMCES document_issue_places(document_issue_place_id)
     )""")
+    conn.execute("""INSERT INTO client_documents (client_id, document_type_id, document_number, family_name, given_name, patronymic, birthdate, gender_id, document_issue_place_id) VALUES
+    (1, 1, "123", "Никулин", "Иван", "Васильевич", 10012022, 3, 1),
+    (2, 1, "124", "Васильев", "Василий", "Васильевич", 01012022, 1, 2),
+    (3, 2, "6542", "Петров", "Пётр", "Петрович", 10012022, 1, 3)""")
     conn.commit()
 
 def db_check():
