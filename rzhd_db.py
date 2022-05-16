@@ -3,6 +3,7 @@ DB_NAME = "railways.db"
 
 def db_init():
     conn = sqlite3.connect(DB_NAME)
+
     conn.execute("""CREATE TABLE clients(
         client_id INTEGER PRIMARY KEY,
         username TEXT,
@@ -13,6 +14,11 @@ def db_init():
     (ioann, dfgdgcxfgg, ioann@ioann.com),
     (vasilly, dfgdfgdthf, vasilly@vasylly.com),
     (pyotr, cgjhcrgdrg, pyotr@pyotr.com)""")
+
+    conn.execute("""CREATE TABLE genders(
+        gender_id INTEGER PRIMARY KEY,
+        gender_name TEXT
+    )""")
     conn.commit()
 
 def db_check():
