@@ -19,6 +19,10 @@ def db_init():
         gender_id INTEGER PRIMARY KEY,
         gender_name TEXT
     )""")
+    conn.execute("""INSERT INTO genders (gender_name) VALUES
+    (муж),
+    (жен),
+    (апач)""")
     conn.commit()
 
 def db_check():
