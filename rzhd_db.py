@@ -28,6 +28,10 @@ def db_init():
         document_type_id INTEGER PRIMARY KEY,
         type_name TEXT
     )""")
+    conn.execute("""INSERT INTO client_document_types (type_name) VALUES
+    (паспорт),
+    (загран паспорт),
+    (паспорт моряка)""")
     conn.commit()
 
 def db_check():
